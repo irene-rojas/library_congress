@@ -1,4 +1,40 @@
 .App {
+  /* margin: 0 auto; */
   text-align: center;
+  display: grid;
+  grid-template-rows: 100px repeat(4, auto);
+  grid-template-columns: 1fr;
+  height: 100vh;
 }
 
+header {
+  grid-row: 1/2;
+  grid-column: 1/-1;
+  text-align: center;
+  border-top: 5px solid #fc4c02;
+}
+
+.searchForm {
+  grid-row: 2/3;
+  grid-column: 1/-1;
+  padding: 5px;
+}
+
+
+/* mobile */
+
+.resultsDiv {
+  /* in App */
+  grid-row: 3/4;
+  grid-column: repeat(6, auto);
+  /* in resultsDiv */
+  display: grid;
+  grid-template-rows: repeat(5, auto);
+  grid-template-columns: repeat(5, auto);
+}
+
+.singleResult {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  border: 1px solid black;
+}

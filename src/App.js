@@ -5,7 +5,8 @@ import './App.css';
 function App() {
 
   const [results, setResults] = useState([]);
-
+  const [query, setQuery] = useState("");
+  const [format, setFormat] = useState("");
 
   
   return (

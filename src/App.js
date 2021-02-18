@@ -61,7 +61,7 @@ function App() {
 
         <br/>
 
-        <button className="button">Submit</button>
+        <button>Submit</button>
 
       </form>
 

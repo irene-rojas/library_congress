@@ -22,8 +22,11 @@ function App() {
   return (
     <div className="App">
 
-      <header><h1>Search the Library of Congress</h1></header>
-
+      <header>
+        <h1>Search the Library of Congress</h1>
+        <p>Powered by the <a href="https://libraryofcongress.github.io/data-exploration/" target="_blank" rel="noreferrer">LOC API</a></p>
+      </header>
+      
 
       <form
         className="searchForm"

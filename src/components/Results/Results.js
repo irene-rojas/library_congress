@@ -12,7 +12,7 @@ const Results = (props) => {
                 <img src={props.image} alt={props.title} />
                 <br/>
                 <p>{props.description}</p>
-                <a href={props.url} className="btn btn-secondary stretched-link" role="button">See original</a>
+                <a href={props.url} target="_blank" rel="noreferrer" className="btn btn-secondary stretched-link" role="button">See original</a>
                 {/* stretched-link is bootstrap; turns entire card into a link, rather than trying to wrap <a> around the card */}
             </div>
 

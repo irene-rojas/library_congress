@@ -15,6 +15,7 @@ const Results = (props) => {
                 <p>{props.description}</p>
 
             </div>
+            
         </content>
 
     )

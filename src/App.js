@@ -70,7 +70,7 @@ function App() {
         <br/>
         <br/>
 
-        <button className="btn btn-secondary">Submit</button>
+        <button className="btn btn-dark">Submit</button>
 
       </form>
 
@@ -86,6 +86,7 @@ function App() {
               title={result.title}
               description={result.description}
               image={result.image_url[0]}
+              url={result.url}
             />
           )
         })}

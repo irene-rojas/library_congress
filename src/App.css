@@ -38,3 +38,12 @@ header {
   grid-column: 1/2;
   border: 1px solid black;
 }
+
+.form-select {
+  max-width: 175px;
+  display: inline;
+}
+
+.input {
+  max-width: 300px;
+}

@@ -1,0 +1,12 @@
+.resultsContent {
+    margin: 10px;
+    transition: 0.5s all ease-in-out;
+}
+
+.resultsContent:hover {
+    transform: scale(1.05);
+}
+
+img {
+    max-width: 300px;
+}

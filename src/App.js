@@ -24,6 +24,7 @@ function App() {
 
       <header><h1>Search the Library of Congress</h1></header>
 
+
       <form
         className="searchForm"
         onSubmit={event => {
@@ -31,7 +32,10 @@ function App() {
           imageSearch();
         }}>
 
+        <h4>Enter a search term:</h4>
+
         <input 
+          className="input"
           value={query}
           onChange={event => {
               event.preventDefault();
@@ -40,9 +44,13 @@ function App() {
         />
 
         <br/>
+        <br/>
 
-        <select
-            className="formatDropdown"
+        {/* does LOC api access multiple {format}? */}
+        {/* also need a "read more" option for long results */}
+
+        <select 
+            className="formatDropdown form-select form-select-sm"
             value={format}
             onChange={event => {
                 event.preventDefault();
@@ -60,10 +68,14 @@ function App() {
         </select>
 
         <br/>
+        <br/>
 
-        <button>Submit</button>
+        <button className="btn btn-secondary">Submit</button>
 
       </form>
+
+      {/* add spinner, and "no results" result */}
+      {/* should link to result on LOC page */}
 
       <div className="resultsDiv">
         {results.map((result, index) => {

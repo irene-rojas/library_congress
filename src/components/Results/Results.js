@@ -4,13 +4,17 @@ import "./Results.css";
 const Results = (props) => {
     return (
 
-        <content className="resultsContent">
+        <content className="resultsContent card">
 
-            <strong>{props.title}</strong>
-            <br/>
-            <p>{props.description}</p>
-            <img src={props.image} alt={props.title} />
-            <br/>
+            <div className="card-body">
+
+                <strong>{props.title}</strong>
+                <br />
+                <img src={props.image} alt={props.title} />
+                <br/>
+                <p>{props.description}</p>
+
+            </div>
         </content>
 
     )

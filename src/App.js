@@ -11,7 +11,10 @@ function App() {
   const [format, setFormat] = useState("");
 
   const imageSearch = () => {
-    Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json`)
+    Axios.get(``)
+    // https://www.loc.gov/${format}/?q=${query}&fo=json - this is standard query form
+    // https://www.loc.gov/search/?in=&q=${query}&fo=json&c=150 - this gets first 150 results of all format types
+    // how write in pagination, or all results at once?
     .then(res => {
         setResults(res.data.results);
         console.log(res.data.results);
@@ -90,6 +93,7 @@ function App() {
               description={result.description}
               image={result.image_url[0]}
               url={result.url}
+              format={result.original_format}
             />
           )
         })}

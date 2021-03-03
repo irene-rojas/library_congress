@@ -47,3 +47,7 @@ header {
 .input {
   max-width: 300px;
 }
+
+#searchAllFormatsBtn {
+  margin-left: 10px;
+}

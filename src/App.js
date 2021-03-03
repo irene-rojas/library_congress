@@ -11,14 +11,20 @@ function App() {
   const [format, setFormat] = useState("");
 
   const imageSearch = () => {
-    Axios.get(``)
-    // https://www.loc.gov/${format}/?q=${query}&fo=json - this is standard query form
-    // https://www.loc.gov/search/?in=&q=${query}&fo=json&c=150 - this gets first 150 results of all format types
-    // how write in pagination, or all results at once?
+    Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json`)
     .then(res => {
         setResults(res.data.results);
         console.log(res.data.results);
     });
+  }
+
+  const allFormatsSearch = () => {
+    Axios.get(`https://www.loc.gov/search/?in=&q=${query}&fo=json&c=150`)
+    // returns first 150 results
+    .then(res => {
+      setResults(res.data.results);
+      console.log(res.data.results);
+  });
   }
 
 
@@ -52,9 +58,6 @@ function App() {
         <br/>
         <br/>
 
-        {/* does LOC api access multiple {format}? */}
-        {/* also need a "read more" option for long results */}
-
         <select 
             className="formatDropdown form-select form-select-sm"
             value={format}
@@ -75,13 +78,25 @@ function App() {
 
         <br/>
         <br/>
-
+      
         <button className="btn btn-dark">Submit</button>
+
+        <button 
+          className="btn btn-dark" 
+          id="searchAllFormatsBtn"
+          onClick={event => {
+            event.preventDefault();
+            allFormatsSearch();
+          }}>
+            Search all formats
+        </button>
+
+        {/* need a clear/reset button */}
 
       </form>
 
       {/* add spinner, and "no results" result */}
-      {/* should link to result on LOC page */}
+      {/* also need a "read more" option for long results */}
 
       <div className="resultsDiv">
         {results.map((result, index) => {

@@ -11,11 +11,21 @@ function App() {
   const [format, setFormat] = useState("");
 
   const imageSearch = () => {
+    // if searchAllFormatsChk == 1 {
+      //   Axios.get(`https://www.loc.gov/search/?in=&q=${query}&fo=json&c=150`)
+      //   // returns first 150 results
+      //   .then(res => {
+      //     setResults(res.data.results);
+      //     console.log(res.data.results);
+      // });
+      // }
+      // else ...
     Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json`)
     .then(res => {
         setResults(res.data.results);
         console.log(res.data.results);
     });
+
   }
 
   const allFormatsSearch = () => {
@@ -75,6 +85,9 @@ function App() {
             <option value="websites">Websites</option>
             <option value="notated-music">Printed Music</option>
         </select>
+
+        {/* attempt at checkbox instead of separate "all" button */}
+        <input type="checkbox" name="searchAllFormatsChk" value="1"/>
 
         <br/>
         <br/>

@@ -98,6 +98,7 @@ function App() {
         <label>
           <input 
             type="checkbox" 
+            id="searchAll"
             defaultChecked={checked}
             onChange={() => checkAllFunction()}
           />

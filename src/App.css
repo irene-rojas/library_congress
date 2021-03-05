@@ -48,6 +48,6 @@ header {
   max-width: 300px;
 }
 
-#searchAllFormatsBtn {
-  margin-left: 10px;
+#searchAll {
+  margin-right: 5px;
 }

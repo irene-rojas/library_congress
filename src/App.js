@@ -23,6 +23,7 @@ function App() {
 
   const formatSearch = () => {
     Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json&c=150`)
+    // returns first 150 results
     .then(res => {
         setResults(res.data.results);
         console.log(res.data.results);

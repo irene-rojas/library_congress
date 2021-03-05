@@ -9,10 +9,11 @@ function App() {
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState("");
   const [format, setFormat] = useState("");
-  const [checkAll, setCheckAll] = useState(false);
+  const [checkboxAll, setCheckboxAll] = useState(false);
+  // const [checkedBox, setCheckedBox] = useState(" ");
 
   const imageSearch = () => {
-    if (checkAll === true) {
+    if (checkboxAll === true) {
       allSearch();
     }
      else {
@@ -38,8 +39,9 @@ function App() {
   }
 
   const checkAllFunction = () => {
-    setCheckAll(true);
-    console.log("checkbox selected. value=" + checkAll);
+    setCheckboxAll(checkboxAll => true);
+    // setCheckedBox(checked => "checked")
+    console.log("checkbox selected. value=" + checkboxAll);
   }
 
 
@@ -97,29 +99,21 @@ function App() {
         {/* attempt at checkbox instead of separate "all" button */}
         <label>
           <input 
+          checkedBox
             type="checkbox" 
             onClick={event => {
             event.preventDefault();
             checkAllFunction();
-          }} />
+            
+          }}
+          />
           Search all formats
         </label>
-
 
         <br/>
         <br/>
       
         <button className="btn btn-dark">Submit</button>
-
-        {/* <button 
-          className="btn btn-dark" 
-          id="searchAllFormatsBtn"
-          onClick={event => {
-            event.preventDefault();
-            allSearch();
-          }}>
-            Search all formats
-        </button> */}
 
         {/* need a clear/reset button */}
 

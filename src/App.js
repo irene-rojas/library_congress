@@ -38,6 +38,13 @@ function App() {
   });
   }
 
+  const clearSearch = () => {
+    setResults([]);
+    setQuery("");
+    setFormat("");
+    setChecked(false);
+  }
+
 
   return (
     <div className="App">
@@ -105,12 +112,19 @@ function App() {
       
         <button className="btn btn-dark">Submit</button>
 
-        {/* need a clear/reset button */}
+        <button className="btn btn-danger" 
+          onClick={event => {
+            event.preventDefault();
+            clearSearch();
+        }}>
+          Reset
+        </button>
 
       </form>
 
       {/* add spinner, and "no results" result */}
       {/* also need a "read more" option for long results */}
+      {/* pagination */}
 
       <div className="resultsDiv">
         {results.map((result, index) => {

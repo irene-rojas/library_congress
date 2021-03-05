@@ -9,12 +9,11 @@ function App() {
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState("");
   const [format, setFormat] = useState("");
-  const [checkboxAll, setCheckboxAll] = useState(false);
   const [checked, setChecked] = useState(false);
 
 
   const imageSearch = () => {
-    if (checkboxAll === true) {
+    if (checked) {
       allSearch();
     }
      else {
@@ -40,7 +39,6 @@ function App() {
   }
 
   const checkAllFunction = () => {
-    setCheckboxAll(true);
     setChecked(!checked)
   }
 

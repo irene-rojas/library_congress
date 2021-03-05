@@ -38,10 +38,6 @@ function App() {
   });
   }
 
-  const checkAllFunction = () => {
-    setChecked(!checked)
-  }
-
 
   return (
     <div className="App">
@@ -100,7 +96,7 @@ function App() {
             type="checkbox" 
             id="searchAll"
             defaultChecked={checked}
-            onChange={() => checkAllFunction()}
+            onChange={() => setChecked(!checked)}
           />
           Search all formats
         </label>

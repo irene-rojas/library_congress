@@ -30,6 +30,8 @@ function App() {
         setResults(res.data.results);
         console.log(res.data.results);
     }).then(() => {
+      // results.length === 0 ? (<div>No Results</div>) : 
+      // does no results need a timer?
       setLoading(false);
     });
   }
@@ -129,7 +131,7 @@ function App() {
 
       </form>
 
-      {/* add spinner, and "no results" result */}
+      {/* add "no results" result */}
       {/* also need a "read more" option for long results */}
       {/* pagination */}
 
@@ -141,7 +143,7 @@ function App() {
       </div>
 
       <div className="resultsDiv">
-        {loading === false &&
+        {loading === false && 
          results.map((result, index) => {
           return (
             <Results

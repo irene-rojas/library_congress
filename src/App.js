@@ -9,32 +9,37 @@ function App() {
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState("");
   const [format, setFormat] = useState("");
+  const [checkAll, setCheckAll] = useState(false);
 
   const imageSearch = () => {
-    // if searchAllFormatsChk == 1 {
-      //   Axios.get(`https://www.loc.gov/search/?in=&q=${query}&fo=json&c=150`)
-      //   // returns first 150 results
-      //   .then(res => {
-      //     setResults(res.data.results);
-      //     console.log(res.data.results);
-      // });
-      // }
-      // else ...
-    Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json`)
+    if (checkAll === true) {
+      allSearch();
+    }
+     else {
+       formatSearch();
+     }
+  }
+
+  const formatSearch = () => {
+    Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json&c=150`)
     .then(res => {
         setResults(res.data.results);
         console.log(res.data.results);
     });
-
   }
 
-  const allFormatsSearch = () => {
+  const allSearch = () => {
     Axios.get(`https://www.loc.gov/search/?in=&q=${query}&fo=json&c=150`)
     // returns first 150 results
     .then(res => {
       setResults(res.data.results);
       console.log(res.data.results);
   });
+  }
+
+  const checkAllFunction = () => {
+    setCheckAll(true);
+    console.log("checkbox selected. value=" + checkAll);
   }
 
 
@@ -86,23 +91,35 @@ function App() {
             <option value="notated-music">Printed Music</option>
         </select>
 
+        <br/>
+        <br/>
+
         {/* attempt at checkbox instead of separate "all" button */}
-        <input type="checkbox" name="searchAllFormatsChk" value="1"/>
+        <label>
+          <input 
+            type="checkbox" 
+            onClick={event => {
+            event.preventDefault();
+            checkAllFunction();
+          }} />
+          Search all formats
+        </label>
+
 
         <br/>
         <br/>
       
         <button className="btn btn-dark">Submit</button>
 
-        <button 
+        {/* <button 
           className="btn btn-dark" 
           id="searchAllFormatsBtn"
           onClick={event => {
             event.preventDefault();
-            allFormatsSearch();
+            allSearch();
           }}>
             Search all formats
-        </button>
+        </button> */}
 
         {/* need a clear/reset button */}
 

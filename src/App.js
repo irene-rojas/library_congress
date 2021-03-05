@@ -90,7 +90,6 @@ function App() {
         <br/>
         <br/>
 
-        {/* attempt at checkbox instead of separate "all" button */}
         <label>
           <input 
             type="checkbox" 

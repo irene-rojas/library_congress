@@ -10,6 +10,7 @@ function App() {
   const [query, setQuery] = useState("");
   const [format, setFormat] = useState("");
   const [checked, setChecked] = useState(false);
+  const [loading, setLoading] = useState(false);
 
 
   const imageSearch = () => {
@@ -22,11 +23,14 @@ function App() {
   }
 
   const formatSearch = () => {
+    setLoading(true);
     Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json&c=150`)
     // returns first 150 results
     .then(res => {
         setResults(res.data.results);
         console.log(res.data.results);
+    }).then(() => {
+      setLoading(false);
     });
   }
 
@@ -129,8 +133,16 @@ function App() {
       {/* also need a "read more" option for long results */}
       {/* pagination */}
 
+      <div className="d-flex justify-content-center">
+        {loading === true && 
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>}
+      </div>
+
       <div className="resultsDiv">
-        {results.map((result, index) => {
+        {loading === false &&
+         results.map((result, index) => {
           return (
             <Results
               className="singleResult" 

@@ -10,7 +10,8 @@ function App() {
   const [query, setQuery] = useState("");
   const [format, setFormat] = useState("");
   const [checkboxAll, setCheckboxAll] = useState(false);
-  // const [checkedBox, setCheckedBox] = useState(" ");
+  const [checked, setChecked] = useState(false);
+
 
   const imageSearch = () => {
     if (checkboxAll === true) {
@@ -39,9 +40,8 @@ function App() {
   }
 
   const checkAllFunction = () => {
-    setCheckboxAll(checkboxAll => true);
-    // setCheckedBox(checked => "checked")
-    console.log("checkbox selected. value=" + checkboxAll);
+    setCheckboxAll(true);
+    setChecked(!checked)
   }
 
 
@@ -99,13 +99,9 @@ function App() {
         {/* attempt at checkbox instead of separate "all" button */}
         <label>
           <input 
-          checkedBox
             type="checkbox" 
-            onClick={event => {
-            event.preventDefault();
-            checkAllFunction();
-            
-          }}
+            defaultChecked={checked}
+            onChange={() => checkAllFunction()}
           />
           Search all formats
         </label>

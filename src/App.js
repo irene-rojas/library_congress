@@ -43,6 +43,8 @@ function App() {
     setQuery("");
     setFormat("");
     setChecked(false);
+    // defaultChecked
+    // problem: checkbox is not visibly clearing after reset
   }
 
 

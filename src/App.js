@@ -12,7 +12,14 @@ function App() {
   const [format, setFormat] = useState("");
   const [checked, setChecked] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [pagination, setPages] = useState([]);
+  const [pagination, setPages] = useState([
+    {id: 0, value: ""},
+    {id: 1, value: ""},
+    {id: 2, value: ""},
+    {id: 3, value: ""}
+  ]);
+  // need to resubmit formatSearch() every time you get next page?
+  // https://www.jstips.co/en/javascript/create-range-0/.n-easily-using-one-line/
 
 
   const imageSearch = () => {
@@ -30,16 +37,16 @@ function App() {
     .then(res => {
         setResults(res.data.results);
         // console.log(res.data.results);
-        setPages(res.data.pagination.page_list);
-        // console.log(res.data.pagination);
-        // console.log(res.data.pagination.page_list);
-        console.log(res.data.pagination.next);
+        setPages(res.data.pagination);
+        console.log(res.data.pagination);
         // sp=1 is the first page of results
     }).then(() => {
       setLoading(false);
     });
   }
   // Pagination: https://libraryofcongress.github.io/data-exploration/pagination.html
+  // https://www.robinwieruch.de/react-pass-props-to-component
+  // https://www.loc.gov/photos/?q=cars&fo=json
 
 
   const allSearch = () => {
@@ -48,6 +55,7 @@ function App() {
     .then(res => {
       setResults(res.data.results);
       console.log(res.data.results);
+      setPages(res.data.pagination);
   });
   }
 
@@ -137,9 +145,8 @@ function App() {
 
       </form>
 
-      {/* add "no results" result */}
+      {/* add "no results" result? */}
       {/* also need a "read more" option for long results */}
-      {/* pagination */}
 
       <div className="d-flex justify-content-center">
         {loading === true && 
@@ -168,15 +175,13 @@ function App() {
       {/* hide pagination until there are results */}
       <div className="pagesDiv">
 
-        {pagination.map((page, index) => {
-          return (
-            <Pagination
-              key={index}
-              pageNum={page.number}
-              pageUrl={page.url}
-            />
-            )
-          })}
+        <Pagination
+          // key={pagination.index}
+          pageNum={pagination.page_list}
+          pageUrl={pagination.page_list}
+          nextPage={pagination.next}
+          lastPage={pagination.last}
+        />
 
       </div>
 

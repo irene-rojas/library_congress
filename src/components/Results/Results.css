@@ -14,3 +14,7 @@ img {
 a {
     text-decoration: none;
 }
+
+.read-more-button {
+    color: red;
+}

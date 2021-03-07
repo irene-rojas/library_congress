@@ -5,33 +5,38 @@ const Pagination = (props) => {
     return (
         <content className="pagesContent">
 
-            <nav aria-label="Page navigation example">
+            <nav aria-label="Page navigation">
 
-            <ul class="pagination justify-content-center">
+            <ul className="pagination justify-content-center">
 
-                <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                {/* <li classNameName="page-item disabled">
+                    <a classNameName="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li> */}
+
+                <li className="page-item">
+                    <a className="page-link" href="https://www.google.com/" aria-disabled="true">First</a>
                 </li>
 
-                <li class="page-item">
-                    <a class="page-link" href={props.pageUrl}>{props.pageNum}</a>
+                <li className="page-item">
+                    <a className="page-link" href="https://www.google.com/">1</a>
                 </li>
 
-                <li class="page-item">
-                    <a class="page-link" href={props.pageUrl}>{props.pageNum}</a>
+                <li className="page-item">
+                    <a className="page-link" href="https://www.google.com/">2</a>
                 </li>
 
-                <li class="page-item">
-                    <a class="page-link" href="#">2</a>
+                <li className="page-item">
+                    <a className="page-link" href="https://www.google.com/">3</a>
                 </li>
 
-                <li class="page-item">
-                    <a class="page-link" href="#">3</a>
+                <li className="page-item">
+                    <a className="page-link" href={props.nextPage}>Next</a>
                 </li>
 
-                <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
+                <li className="page-item">
+                    <a className="page-link" href={props.lastPage}>Last</a>
                 </li>
+                
             </ul>
 
             </nav>

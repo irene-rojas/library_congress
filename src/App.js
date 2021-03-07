@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import './App.css';
 import Results from "./components/Results/Results";
+import Pagination from "./components/Pagination/Pagination";
 
 
 function App() {
@@ -26,30 +27,20 @@ function App() {
   const formatSearch = () => {
     setLoading(true);
     Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json`)
-    // returns first 150 results
     .then(res => {
         setResults(res.data.results);
         // console.log(res.data.results);
-        setPages(res.data.pagination);
-        console.log(res.data.pagination);
+        setPages(res.data.pagination.page_list);
+        // console.log(res.data.pagination);
+        // console.log(res.data.pagination.page_list);
+        console.log(res.data.pagination.next);
+        // sp=1 is the first page of results
     }).then(() => {
       setLoading(false);
     });
   }
+  // Pagination: https://libraryofcongress.github.io/data-exploration/pagination.html
 
-  // const formatSearch = () => {
-  //   setLoading(true);
-  //   Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json&c=150`)
-  //   // returns first 150 results
-  //   .then(res => {
-  //       setResults(res.data.results);
-  //       console.log(res.data.results);
-  //   }).then(() => {
-  //     // results.length === 0 ? (<div>No Results</div>) : 
-  //     // does no results need a timer?
-  //     setLoading(false);
-  //   });
-  // }
 
   const allSearch = () => {
     Axios.get(`https://www.loc.gov/search/?in=&q=${query}&fo=json&c=150`)
@@ -134,7 +125,7 @@ function App() {
         <br/>
         <br/>
       
-        <button className="btn btn-dark">Submit</button>
+        <button className="btn btn-secondary">Submit</button>
 
         <button className="btn btn-danger" 
           onClick={event => {
@@ -172,6 +163,21 @@ function App() {
             />
           )
         })}
+      </div>
+
+      {/* hide pagination until there are results */}
+      <div className="pagesDiv">
+
+        {pagination.map((page, index) => {
+          return (
+            <Pagination
+              key={index}
+              pageNum={page.number}
+              pageUrl={page.url}
+            />
+            )
+          })}
+
       </div>
 
     </div>

@@ -11,6 +11,7 @@ function App() {
   const [format, setFormat] = useState("");
   const [checked, setChecked] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [pagination, setPages] = useState([]);
 
 
   const imageSearch = () => {
@@ -24,18 +25,31 @@ function App() {
 
   const formatSearch = () => {
     setLoading(true);
-    Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json&c=150`)
+    Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json`)
     // returns first 150 results
     .then(res => {
         setResults(res.data.results);
-        console.log(res.data.results);
-        console.log(`https://www.loc.gov/${format}/?q=${query}&fo=json`);
+        // console.log(res.data.results);
+        setPages(res.data.pagination);
+        console.log(res.data.pagination);
     }).then(() => {
-      // results.length === 0 ? (<div>No Results</div>) : 
-      // does no results need a timer?
       setLoading(false);
     });
   }
+
+  // const formatSearch = () => {
+  //   setLoading(true);
+  //   Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json&c=150`)
+  //   // returns first 150 results
+  //   .then(res => {
+  //       setResults(res.data.results);
+  //       console.log(res.data.results);
+  //   }).then(() => {
+  //     // results.length === 0 ? (<div>No Results</div>) : 
+  //     // does no results need a timer?
+  //     setLoading(false);
+  //   });
+  // }
 
   const allSearch = () => {
     Axios.get(`https://www.loc.gov/search/?in=&q=${query}&fo=json&c=150`)

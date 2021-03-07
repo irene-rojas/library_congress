@@ -29,6 +29,7 @@ function App() {
     .then(res => {
         setResults(res.data.results);
         console.log(res.data.results);
+        console.log(`https://www.loc.gov/${format}/?q=${query}&fo=json`);
     }).then(() => {
       // results.length === 0 ? (<div>No Results</div>) : 
       // does no results need a timer?

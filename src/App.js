@@ -146,7 +146,6 @@ function App() {
       </form>
 
       {/* add "no results" result? */}
-      {/* also need a "read more" option for long results */}
 
       <div className="d-flex justify-content-center">
         {loading === true && 
@@ -179,7 +178,7 @@ function App() {
           // key={pagination.index}
           pageNum={pagination.page_list}
           pageUrl={pagination.page_list}
-          nextPage={pagination.next}
+          // nextPage={pagination.next}
           lastPage={pagination.last}
         />
 

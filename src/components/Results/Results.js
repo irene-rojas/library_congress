@@ -18,7 +18,7 @@ const Results = (props) => {
                     text={`${props.description}`}
                     readMoreText="Expand"
                 />
-
+                
                 {/* <p>{props.description}</p> */}
                 <br/>
                 <a href={props.url} target="_blank" rel="noreferrer" className="btn btn-secondary" role="button">See original</a>

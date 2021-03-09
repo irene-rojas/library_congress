@@ -33,16 +33,18 @@ function App() {
     });
   }
 
-
-
   const allSearch = () => {
+    setLoading(true);
     Axios.get(`https://www.loc.gov/search/?in=&q=${query}&fo=json&c=150`)
     // returns first 150 results
     .then(res => {
       setResults(res.data.results);
       console.log(res.data.results);
-  });
-  }
+    })
+    .then(() => {
+      setLoading(false);
+    });
+    }
 
   const clearSearch = () => {
     setResults([]);
@@ -117,8 +119,8 @@ function App() {
 
         <br/>
         <br/>
-      
-        <button className="btn btn-secondary">Submit</button>
+
+        <button className="btn btn-dark">Submit</button>
 
         <button className="btn btn-danger" 
           onClick={event => {
@@ -129,8 +131,6 @@ function App() {
         </button>
 
       </form>
-
-      {/* add "no results" result? */}
 
       <div className="d-flex justify-content-center">
         {loading === true && 
@@ -155,7 +155,6 @@ function App() {
           )
         })}
       </div>
-
 
     </div>
     // end App

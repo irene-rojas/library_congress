@@ -51,8 +51,6 @@ function App() {
     setQuery("");
     setFormat("");
     setChecked(false);
-    // defaultChecked only loads on initial render. 
-    // problem: checkbox is not visibly clearing after reset button clicked
   }
 
 
@@ -127,7 +125,6 @@ function App() {
             event.preventDefault();
             clearSearch();
           }}>
-          {/* I think this needs an onChange function to force a re-render of the checkbox to empty defaultChecked */}
           Reset
         </button>
 

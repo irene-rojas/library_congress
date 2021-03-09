@@ -109,7 +109,7 @@ function App() {
           <input 
             type="checkbox" 
             id="searchAll"
-            defaultChecked={checked}
+            checked={checked}
             onChange={() => setChecked(!checked)}
           />
           Search all formats

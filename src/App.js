@@ -35,11 +35,11 @@ function App() {
 
   const allSearch = () => {
     setLoading(true);
-    Axios.get(`https://www.loc.gov/search/?in=&q=${query}&fo=json&c=150`)
-    // returns first 150 results
+    Axios.get(`https://www.loc.gov/search/?in=&q=${query}&fo=json`)
+    // &c=150 returns first 150 results
     .then(res => {
       setResults(res.data.results);
-      console.log(res.data.results);
+      // console.log(res.data.results);
     })
     .then(() => {
       setLoading(false);
@@ -51,7 +51,8 @@ function App() {
     setQuery("");
     setFormat("");
     setChecked(false);
-    // problem: checkbox is not visibly clearing after reset
+    // defaultChecked only loads on initial render. 
+    // problem: checkbox is not visibly clearing after reset button clicked
   }
 
 
@@ -125,9 +126,8 @@ function App() {
           onClick={event => {
             event.preventDefault();
             clearSearch();
-          }}
-          onChange={() => setChecked(checked => !checked)}
-        >
+          }}>
+          {/* I think this needs an onChange function to force a re-render of the checkbox to empty defaultChecked */}
           Reset
         </button>
 

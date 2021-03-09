@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import './App.css';
 import Results from "./components/Results/Results";
-import Pagination from "./components/Pagination/Pagination";
 
 
 function App() {
@@ -12,14 +11,6 @@ function App() {
   const [format, setFormat] = useState("");
   const [checked, setChecked] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [pagination, setPages] = useState([
-    {id: 0, value: ""},
-    {id: 1, value: ""},
-    {id: 2, value: ""},
-    {id: 3, value: ""}
-  ]);
-  // need to resubmit formatSearch() every time you get next page?
-  // https://www.jstips.co/en/javascript/create-range-0/.n-easily-using-one-line/
 
 
   const imageSearch = () => {
@@ -37,16 +28,11 @@ function App() {
     .then(res => {
         setResults(res.data.results);
         // console.log(res.data.results);
-        setPages(res.data.pagination);
-        console.log(res.data.pagination);
-        // sp=1 is the first page of results
     }).then(() => {
       setLoading(false);
     });
   }
-  // Pagination: https://libraryofcongress.github.io/data-exploration/pagination.html
-  // https://www.robinwieruch.de/react-pass-props-to-component
-  // https://www.loc.gov/photos/?q=cars&fo=json
+
 
 
   const allSearch = () => {
@@ -55,7 +41,6 @@ function App() {
     .then(res => {
       setResults(res.data.results);
       console.log(res.data.results);
-      setPages(res.data.pagination);
   });
   }
 
@@ -66,50 +51,6 @@ function App() {
     setChecked(false);
     // defaultChecked
     // problem: checkbox is not visibly clearing after reset
-  }
-
-  const pageOne = () => {
-    setLoading(true);
-    Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json&sp=1`)
-    .then(res => {
-        setResults(res.data.results);
-        // sp=1 is the first page of results
-    }).then(() => {
-      setLoading(false);
-    });
-  }
-
-  const pageTwo = () => {
-    setLoading(true);
-    Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json&sp=2`)
-    .then(res => {
-        setResults(res.data.results);
-        // sp=1 is the first page of results
-    }).then(() => {
-      setLoading(false);
-    });
-  }
-
-  const pageThree = () => {
-    setLoading(true);
-    Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json&sp=3`)
-    .then(res => {
-        setResults(res.data.results);
-        // sp=1 is the first page of results
-    }).then(() => {
-      setLoading(false);
-    });
-  }
-
-  const pageFour = () => {
-    setLoading(true);
-    Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json&sp=4`)
-    .then(res => {
-        setResults(res.data.results);
-        // sp=1 is the first page of results
-    }).then(() => {
-      setLoading(false);
-    });
   }
 
 
@@ -215,46 +156,6 @@ function App() {
         })}
       </div>
 
-      {/* hide pagination until there are results */}
-      <div className="pagesDiv">
-
-        {/* would pagination work better as Router? */}
-        <Pagination
-          // key={pagination.index}
-          pageNum={pagination.page_list}
-          pageUrl={pagination.page_list}
-          // nextPage={pagination.next}
-          lastPage={pagination.last}
-        />
-
-      <nav aria-label="Page navigation example">
-        <ul className="pagination justify-content-center">
-          {/* <li className="page-item"><a className="page-link" href="#">Previous</a></li> */}
-          <li className="page-item"><a className="page-link" 
-            onClick={event => {
-            event.preventDefault();
-            pageOne();
-            }}>1</a></li>
-          <li className="page-item"><a className="page-link" 
-            onClick={event => {
-            event.preventDefault();
-            pageTwo();
-            }}>2</a></li>
-          <li className="page-item"><a className="page-link" 
-            onClick={event => {
-            event.preventDefault();
-            pageThree();
-            }}>3</a></li>
-            <li className="page-item"><a className="page-link" 
-            onClick={event => {
-            event.preventDefault();
-            pageFour();
-            }}>4</a></li>
-          {/* <li className="page-item"><a className="page-link" href="#">Next</a></li> */}
-        </ul>
-      </nav>
-
-      </div>
 
     </div>
     // end App

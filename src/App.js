@@ -12,7 +12,7 @@ function App() {
   const [checked, setChecked] = useState(false);
   const [loading, setLoading] = useState(false);
 
-
+  
   const imageSearch = () => {
     if (checked) {
       allSearch();
@@ -51,7 +51,6 @@ function App() {
     setQuery("");
     setFormat("");
     setChecked(false);
-    // defaultChecked
     // problem: checkbox is not visibly clearing after reset
   }
 
@@ -126,7 +125,9 @@ function App() {
           onClick={event => {
             event.preventDefault();
             clearSearch();
-        }}>
+          }}
+          onChange={() => setChecked(checked => !checked)}
+        >
           Reset
         </button>
 

@@ -1,38 +1,58 @@
 .App {
+  /* margin: 0 auto; */
   text-align: center;
+  display: grid;
+  grid-template-rows: 100px repeat(4, auto);
+  grid-template-columns: 1fr;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  grid-row: 1/2;
+  grid-column: 1/-1;
+  text-align: center;
+  border-top: 5px solid #fc4c02;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.searchForm {
+  grid-row: 2/3;
+  grid-column: 1/-1;
+  padding: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.input {
+  max-width: 300px;
 }
 
-.App-link {
-  color: #61dafb;
+#searchAll {
+  margin-right: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn {
+  margin: 5px;
 }
+
+
+/* mobile */
+
+.resultsDiv {
+  /* in App */
+  grid-row: 3/4;
+  grid-column: repeat(6, auto);
+  /* in resultsDiv */
+  display: grid;
+  grid-template-rows: repeat(5, auto);
+  grid-template-columns: repeat(5, auto);
+}
+
+.singleResult {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  border: 1px solid black;
+}
+
+.form-select {
+  max-width: 175px;
+  display: inline;
+}
+

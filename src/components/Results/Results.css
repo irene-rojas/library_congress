@@ -1,0 +1,21 @@
+.resultsContent {
+    margin: 10px;
+    transition: 0.5s all ease-in-out;
+    overflow:hidden;
+}
+
+.resultsContent:hover {
+    transform: scale(1.05);
+}
+
+img {
+    max-width: 275px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.read-more-button {
+    color: red;
+}

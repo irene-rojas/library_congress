@@ -147,6 +147,7 @@ function App() {
           </div>}
       </div>
 
+      {/* make topButtonDiv only appear with results  */}
       <div className="resultsDiv">
         {loading === false && 
          results.map((result, index) => {

@@ -70,6 +70,8 @@ function App() {
       <header id="top">
         <h1>Search the Library of Congress</h1>
         <p>Powered by the <a href="https://libraryofcongress.github.io/data-exploration/" target="_blank" rel="noreferrer">LOC API</a></p>
+        <p>No-frills portal to search the Library of Congress's collection.<br/>
+        Returns first 150 results, when available.</p>
       </header>
       
 
@@ -149,7 +151,7 @@ function App() {
 
       {/* make topButtonDiv only appear with results  */}
       <div className="resultsDiv">
-        
+
         <div className="topButtonDiv hide" id="topBtnDiv">
           <a href="#top"><button className="btn btn-primary" id="topBtn">Top</button></a>
         </div>

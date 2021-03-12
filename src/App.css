@@ -1,8 +1,7 @@
 .App {
-  /* margin: 0 auto; */
   text-align: center;
   display: grid;
-  grid-template-rows: 100px repeat(5, auto);
+  grid-template-rows: 175px repeat(5, auto);
   grid-template-columns: 1fr;
   height: 100vh;
 }

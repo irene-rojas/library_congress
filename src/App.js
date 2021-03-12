@@ -149,6 +149,11 @@ function App() {
 
       {/* make topButtonDiv only appear with results  */}
       <div className="resultsDiv">
+        
+        <div className="topButtonDiv hide" id="topBtnDiv">
+          <a href="#top"><button className="btn btn-primary" id="topBtn">Top</button></a>
+        </div>
+
         {loading === false && 
          results.map((result, index) => {
           return (

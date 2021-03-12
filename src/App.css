@@ -1,8 +1,7 @@
 .App {
-  /* margin: 0 auto; */
   text-align: center;
   display: grid;
-  grid-template-rows: 100px repeat(4, auto);
+  grid-template-rows: 175px repeat(5, auto);
   grid-template-columns: 1fr;
   height: 100vh;
 }
@@ -30,6 +29,30 @@ header {
 
 .btn {
   margin: 5px;
+}
+
+.topButtonDiv {
+  box-sizing: border-box;
+  position: sticky;
+  top: 12rem;
+  right: 1rem;
+  bottom: 0;
+  z-index: 1;
+  opacity: 1;
+}
+
+#topBtn {
+  position: sticky;
+  top: 12rem;
+  right: 1rem;
+  bottom: 0;
+  z-index: 1;
+  opacity: 1;
+  float: right;
+}
+
+.hide {
+  display: none;
 }
 
 

@@ -22,20 +22,24 @@ function App() {
      }
   }
 
+  const topDiv = document.getElementById('topBtnDiv');
+
   const formatSearch = () => {
     setLoading(true);
-    Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json`)
+    Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json&c=150`)
+    // &c=150 returns first 150 results
     .then(res => {
         setResults(res.data.results);
         // console.log(res.data.results);
     }).then(() => {
       setLoading(false);
+      topDiv.classList.remove('hide');
     });
   }
 
   const allSearch = () => {
     setLoading(true);
-    Axios.get(`https://www.loc.gov/search/?in=&q=${query}&fo=json`)
+    Axios.get(`https://www.loc.gov/search/?in=&q=${query}&fo=json&c=150`)
     // &c=150 returns first 150 results
     .then(res => {
       setResults(res.data.results);
@@ -43,6 +47,7 @@ function App() {
     })
     .then(() => {
       setLoading(false);
+      topDiv.classList.remove('hide');
     });
     }
 
@@ -51,15 +56,22 @@ function App() {
     setQuery("");
     setFormat("");
     setChecked(false);
+    topDiv.classList.add('hide');
   }
 
 
   return (
     <div className="App">
 
-      <header>
+      <div className="topButtonDiv hide" id="topBtnDiv">
+        <a href="#top"><button className="btn btn-primary" id="topBtn">Top</button></a>
+      </div>
+
+      <header id="top">
         <h1>Search the Library of Congress</h1>
         <p>Powered by the <a href="https://libraryofcongress.github.io/data-exploration/" target="_blank" rel="noreferrer">LOC API</a></p>
+        <p>No-frills portal to search the Library of Congress's collection.<br/>
+        Returns first 150 results, when available.</p>
       </header>
       
 
@@ -137,7 +149,13 @@ function App() {
           </div>}
       </div>
 
+      {/* make topButtonDiv only appear with results  */}
       <div className="resultsDiv">
+
+        <div className="topButtonDiv hide" id="topBtnDiv">
+          <a href="#top"><button className="btn btn-primary" id="topBtn">Top</button></a>
+        </div>
+
         {loading === false && 
          results.map((result, index) => {
           return (
@@ -153,6 +171,8 @@ function App() {
           )
         })}
       </div>
+    
+
 
     </div>
     // end App

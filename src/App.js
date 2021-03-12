@@ -22,6 +22,8 @@ function App() {
      }
   }
 
+  const topDiv = document.getElementById('topBtnDiv');
+
   const formatSearch = () => {
     setLoading(true);
     Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json&c=150`)
@@ -31,7 +33,7 @@ function App() {
         // console.log(res.data.results);
     }).then(() => {
       setLoading(false);
-      document.getElementById('topBtnDiv').classList.remove('hide');
+      topDiv.classList.remove('hide');
     });
   }
 
@@ -45,7 +47,7 @@ function App() {
     })
     .then(() => {
       setLoading(false);
-      document.getElementById('topBtnDiv').classList.remove('hide');
+      topDiv.classList.remove('hide');
     });
     }
 
@@ -54,7 +56,7 @@ function App() {
     setQuery("");
     setFormat("");
     setChecked(false);
-    document.getElementById('topBtnDiv').classList.add('hide');
+    topDiv.classList.add('hide');
   }
 
 

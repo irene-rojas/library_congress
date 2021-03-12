@@ -4,7 +4,7 @@ import ReadMoreReact from 'read-more-react';
 
 const Results = (props) => {
     return (
-        <content className="resultsContent card">
+        <div className="resultsContent card">
 
             <div className="card-body">
 
@@ -24,7 +24,7 @@ const Results = (props) => {
                 {/* className="stretched-link" is bootstrap; turns entire card into a link, rather than trying to wrap <a> around the card */}
             </div>
 
-        </content>
+        </div>
     )
 }
 

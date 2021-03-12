@@ -19,7 +19,6 @@ const Results = (props) => {
                     readMoreText="Expand"
                 />
                 
-                {/* <p>{props.description}</p> */}
                 <br/>
                 <a href={props.url} target="_blank" rel="noreferrer" className="btn btn-secondary" role="button">See original</a>
                 {/* className="stretched-link" is bootstrap; turns entire card into a link, rather than trying to wrap <a> around the card */}

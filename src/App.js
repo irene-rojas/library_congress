@@ -67,7 +67,8 @@ function App() {
         <h1>Search the Library of Congress</h1>
         <p>Powered by the <a href="https://libraryofcongress.github.io/data-exploration/" target="_blank" rel="noreferrer">LOC API</a></p>
         <p>No-frills portal to search the Library of Congress's collection.<br/>
-        Returns first 150 results, when available.</p>
+        Returns first 150 results, when available.<br/>
+        Search by either a specific format OR all formats.</p>
       </header>
       
 

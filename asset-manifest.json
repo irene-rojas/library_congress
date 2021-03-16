@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/library_congress/static/css/main.8b16219f.chunk.css",
+    "main.css": "/library_congress/static/css/main.f0d1316e.chunk.css",
     "main.js": "/library_congress/static/js/main.cec73494.chunk.js",
     "main.js.map": "/library_congress/static/js/main.cec73494.chunk.js.map",
     "runtime-main.js": "/library_congress/static/js/runtime-main.ffb4939b.js",
@@ -10,13 +10,13 @@
     "static/js/3.07f0e82b.chunk.js": "/library_congress/static/js/3.07f0e82b.chunk.js",
     "static/js/3.07f0e82b.chunk.js.map": "/library_congress/static/js/3.07f0e82b.chunk.js.map",
     "index.html": "/library_congress/index.html",
-    "static/css/main.8b16219f.chunk.css.map": "/library_congress/static/css/main.8b16219f.chunk.css.map",
+    "static/css/main.f0d1316e.chunk.css.map": "/library_congress/static/css/main.f0d1316e.chunk.css.map",
     "static/js/2.8c1fd630.chunk.js.LICENSE.txt": "/library_congress/static/js/2.8c1fd630.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ffb4939b.js",
     "static/js/2.8c1fd630.chunk.js",
-    "static/css/main.8b16219f.chunk.css",
+    "static/css/main.f0d1316e.chunk.css",
     "static/js/main.cec73494.chunk.js"
   ]
 }

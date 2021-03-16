@@ -55,6 +55,11 @@ header {
   display: none;
 }
 
+.checkmarkAll {
+  width: 20px;
+  height: 20px;
+}
+
 
 /* mobile */
 

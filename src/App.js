@@ -92,6 +92,8 @@ function App() {
         <br/>
         <br/>
 
+        <h4>Option 1: Select media format</h4>
+
         <select 
             className="formatDropdown form-select form-select-sm"
             value={format}
@@ -99,7 +101,7 @@ function App() {
                 event.preventDefault();
                 setFormat(event.target.value);
             }}>
-            <option>Select media format</option>
+            <option>Media Types</option>
             <option value="photos">Photos</option>
             <option value="audio">Audio</option>
             <option value="film-and-videos">Film/Videos</option>
@@ -114,14 +116,19 @@ function App() {
         <br/>
 
         <label>
-          <input 
-            type="checkbox" 
-            id="searchAll"
-            checked={checked}
-            onChange={() => setChecked(!checked)}
-          />
-          Search all formats
+          <h4>
+          Option 2: Search all formats
+          <br/>
+          </h4>
+            <input 
+              type="checkbox" 
+              id="searchAll"
+              className="checkmarkAll"
+              checked={checked}
+              onChange={() => setChecked(!checked)}
+            />
         </label>
+
 
         <br/>
         <br/>

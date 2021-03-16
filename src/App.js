@@ -27,10 +27,8 @@ function App() {
   const formatSearch = () => {
     setLoading(true);
     Axios.get(`https://www.loc.gov/${format}/?q=${query}&fo=json&c=150`)
-    // &c=150 returns first 150 results
     .then(res => {
         setResults(res.data.results);
-        // console.log(res.data.results);
     }).then(() => {
       setLoading(false);
       topDiv.classList.remove('hide');
@@ -40,10 +38,8 @@ function App() {
   const allSearch = () => {
     setLoading(true);
     Axios.get(`https://www.loc.gov/search/?in=&q=${query}&fo=json&c=150`)
-    // &c=150 returns first 150 results
     .then(res => {
       setResults(res.data.results);
-      // console.log(res.data.results);
     })
     .then(() => {
       setLoading(false);
@@ -149,7 +145,6 @@ function App() {
           </div>}
       </div>
 
-      {/* make topButtonDiv only appear with results  */}
       <div className="resultsDiv">
 
         <div className="topButtonDiv hide" id="topBtnDiv">
